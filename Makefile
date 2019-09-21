@@ -18,6 +18,7 @@ $(OBJECTS): objs/%.o : src/%.cpp
 
 build:
 	@mkdir -p bin
+	@mkdir -p objs
 
 clean:
-	rm -rf $(EXECUTABLE) $(OBJECTS) bin
+	rm -rf $(EXECUTABLE) $(OBJECTS) bin objs
