@@ -82,8 +82,9 @@ DefaultSettings read_default(std::istream &is, const std::string &output) {
 } // read_default()
 
 // the main loop for the default game mode
-void main_default(std::istream &is, const std::string &output) {
-    DefaultSettings set = read_default(is, output);
+void main_default(std::istream &is) {
+    // default doesn't currently record anything, so output file is just empty
+    DefaultSettings set = read_default(is, std::string());
     // create
     sf::RenderWindow window(sf::VideoMode(set.window_width, set.window_height),
                             "0", sf::Style::Titlebar | sf::Style::Close);
@@ -203,7 +204,6 @@ AverageSettings read_average(std::istream &is, const std::string &output) {
 // main method for average mode
 void main_average(std::istream &is, const std::string &output) {
     AverageSettings set = read_average(is, output);
-
     sf::RenderWindow window(sf::VideoMode(set.window_width, set.window_height),
                             "0", sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
@@ -360,20 +360,30 @@ void main_allele(std::istream &is, const std::string &output) {
 // Read in input / output files from the command line, then dispatch
 // to the appropriate game mode
 int main(int argc, char **argv) {
-    if (argc != 3) {
-        std::cerr << "Usage: ./pixels SettingsFile OutputFile\n" << std::endl;
+    if (argc != 2 && argc != 3) {
+        std::cerr << "Usage: ./pixels SettingsFile [OutputFile]" << std::endl;
+        exit(1);
     }
 
     std::ifstream in(argv[1]);
-
     std::string mode;
     in >> mode;
 
     if (mode == "Default") {
-        main_default(in, std::string(argv[2]));
+        main_default(in);
     } else if (mode == "Average") {
+        if (argc != 3) {
+            std::cerr << "Error: Must specify output file for Average mode."
+                      << std::endl;
+            exit(1);
+        }
         main_average(in, std::string(argv[2]));
     } else if (mode == "Allele") {
+        if (argc != 3) {
+            std::cerr << "Error: Must specify output file for Allele mode."
+                      << std::endl;
+            exit(1);
+        }
         main_allele(in, std::string(argv[2]));
     } else {
         std::cerr << "Error: Invalid game mode \"" << mode << "\"" << std::endl;
