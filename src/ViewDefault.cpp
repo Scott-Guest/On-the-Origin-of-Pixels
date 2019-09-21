@@ -35,8 +35,9 @@ void ViewDefault::display() {
         texture.update(&color_map[0]);
         model_was_updated = false;
     } // if
-
-    window.setTitle(std::to_string(generations));
+    std::string title = "generation: ";
+    title += std::to_string(generations);
+    window.setTitle(title);
     window.draw(sprite);
 } // display()
 

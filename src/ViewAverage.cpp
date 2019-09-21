@@ -54,7 +54,7 @@ void ViewAverage::display() {
     } // if
 
     std::stringstream stream;
-    stream << "generations: " << std::to_string(generations) << ", "
+    stream << "generation: " << std::to_string(generations) << ", "
            << "ideal color: 0x" << std::uppercase << std::hex
            << static_cast<uintptr_t>(ideal_color)
            << ", recording: " << std::boolalpha << is_recording;

@@ -107,7 +107,7 @@ void ViewAllele::toggle_recording() {
 void ViewAllele::update_title(std::string geno_) {
     geno = geno_;
     std::stringstream stream;
-    stream << "generations: " << std::to_string(generations)
+    stream << "generation: " << std::to_string(generations)
            << ", recording: " << std::boolalpha << is_recording
            << ", genotype: " << geno_;
     window.setTitle(std::string(stream.str()));
