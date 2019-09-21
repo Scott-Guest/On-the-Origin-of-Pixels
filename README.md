@@ -24,8 +24,8 @@ The controls common across all game modes are:
 * <kbd>P</kbd> - Pause/Unpause the game.
 * <kbd>R</kbd> - Restart the game, populating the board with new cells.
 * <kbd>U</kbd> - Advance a single generation while paused.
-* <kbd>&larr;</kbd> - Increase the speed of evolution.
-* <kbd>&rarr;</kbd> - Decrease the speed of evolution.
+* <kbd>&rarr;</kbd> - Increase the speed of evolution.
+* <kbd>&larr;</kbd> - Decrease the speed of evolution.
 
 ### Default Mode
 The Default mode is a standard implementation of Conway's Game of Life, with white cells alive and black cells dead. From Wikipedia, these rules are
