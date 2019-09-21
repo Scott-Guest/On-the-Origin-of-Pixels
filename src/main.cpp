@@ -51,15 +51,14 @@ DefaultSettings read_default(std::istream &is, const std::string &output) {
     int idx = 0;
     std::string line;
     while (getline(is, line)) {
-        // skip comments
-        if (line.compare(0, 2, "//") == 0) continue;
+        // skip comments and empty lines
+        if (line.empty() || line.compare(0, 2, "//") == 0) continue;
 
         // delete prompt
         line.erase(0, line.find_first_of(":") + 1);
 
         // strip trailing and leading whitespace
         trim(line);
-
         switch (idx) {
             case 0:
                 out.window_width = static_cast<unsigned int>(std::stoi(line));
@@ -155,8 +154,8 @@ AverageSettings read_average(std::istream &is, const std::string &output) {
     int idx = 0;
     std::string line;
     while (getline(is, line)) {
-        // skip comments
-        if (line.size() == 0 || line.compare(0, 2, "//") == 0) continue;
+        // skip comments and empty lines
+        if (line.empty() || line.compare(0, 2, "//") == 0) continue;
 
         // delete prompt
         line.erase(0, line.find_first_of(":") + 1);
@@ -272,8 +271,8 @@ AlleleSettings read_allele(std::istream &is, const std::string &output) {
     int idx = 0;
     std::string line;
     while (getline(is, line)) {
-        // skip comments
-        if (line.size() == 0 || line.compare(0, 2, "//") == 0) continue;
+        // skip comments and empty lines
+        if (line.empty() || line.compare(0, 2, "//") == 0) continue;
 
         // delete prompt
         line.erase(0, line.find_first_of(":") + 1);
@@ -362,7 +361,7 @@ void main_allele(std::istream &is, const std::string &output) {
 // to the appropriate game mode
 int main(int argc, char **argv) {
     if (argc != 3) {
-        std::cerr << "Input/Output file not specified" << std::endl;
+        std::cerr << "Usage: ./pixels SettingsFile OutputFile\n" << std::endl;
     }
 
     std::ifstream in(argv[1]);
@@ -376,7 +375,9 @@ int main(int argc, char **argv) {
         main_average(in, std::string(argv[2]));
     } else if (mode == "Allele") {
         main_allele(in, std::string(argv[2]));
-    } // if/else
+    } else {
+        std::cerr << "Error: Invalid game mode \"" << mode << "\"" << std::endl;
+    }
 
     return EXIT_SUCCESS;
 }
