@@ -65,7 +65,7 @@ When a new cell receives its color, it can do so through either asexual or sexua
 
 To introduce genetic variability, there is also a chance that a newly created cell's color will mutate. The chance of a mutation can be specified in the settings file. When a mutation does occur, its size is randomly selected such that the chance of a mutation of size `n` occurring is proportional to `1 / n^2`.
 
-Recording can be toggle with the <kbd>N</kbd> key. While recording, each generation the ideal color, number of living cells, average mutation rate, average fitness, and standard deviation of fitness deviation is recorded. This data is written to `OutPutFileName_num.csv`, where `num` is incremented each time recording is toggled.
+Recording can be toggled with the <kbd>N</kbd> key. While recording, each generation the ideal color, number of living cells, average mutation rate, average fitness, and standard deviation of fitness deviation are recorded. This data is written to `OutPutFileName_num.csv`, where `num` is incremented each time recording is toggled.
 
 The settings file should be formatted as
 ```
@@ -91,7 +91,7 @@ In Allele mode, every cell is assigned an allele pair, where each allele is eith
 
 Reproduction rules are the same as in Average mode i,e, the standard Game of Life rules with an added 10% chance that a new cell can be born at a dead location with exactly 2 living neighbors. When a new cell is created, two of its living neighbors are randomly selected to be parents, and each passes one of their alleles to the new cell.
 
-Recording can be toggled with <kbd>N</kbd>. While recording, each generation the frequency of dominant alleles, recessive alleles, dominant phenotypic cells, and recessive phenotypic cells is recorded. This data is written to `OutPutFileName_num.csv`, where `num` is incremented each time recording is toggled.
+Recording can be toggled with <kbd>N</kbd>. While recording, each generation the frequency of dominant alleles, recessive alleles, dominant phenotypic cells, and recessive phenotypic cells are recorded. This data is written to `OutPutFileName_num.csv`, where `num` is incremented each time recording is toggled.
 
 The settings file should be formatted as
 ```
