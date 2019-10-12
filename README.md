@@ -110,7 +110,7 @@ where `PROBABILITY ALIVE` and `DOMINANT FREQ` should be in the range `[0, 1]`.
 The title bar indicates the current generation, whether data is being recorded, and the genotype and position of the cell currently under the mouse.
 
 ## License
-This project is licensed under the GNU General Public License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU General Public License - see the [LICENSE](LICENSE) file for details
 
 ## To-Do
 * Refactor to make recording / specifying an output file optional.
