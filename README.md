@@ -2,8 +2,11 @@
 # On the Origin of Pixels
 Inspired by John Conway's [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life), *On the Origin of Pixels* is an interactive demo which models evolution using cellular automata. It includes two game modes exploring different aspects of evolution, as well as an implementation of the original Game of Life. See the usage section for more details.
 
+## Disclaimer for Potential Employers
+This was a hastily-implemented final project for an elective biology course during my undergraduate degree. The quality of the code here is not reflective of my current skills, and I have since gained much more experience with C++ and software engineering in general.
+
 ## Installation
-This application requires the C++ SFML library. To install, follow the download instructions from [here](https://www.sfml-dev.org/). If you have homebrew, you can also run
+This application requires the C++ SFML library. To install, follow the download instructions from [here](https://www.sfml-dev.org/). If you have homebrew, you can run
 ```
 brew install sfml
 ```
